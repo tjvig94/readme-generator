@@ -1,27 +1,7 @@
 const inquirer = require('inquirer');
-const license = require('./license');
+const license = require('./sources/license');
+const generate = require('./sources/generate');
 const fs = require ('fs');
-
-const generateREADME = (answers) =>
-`# ${answers.title}
-
-## Description
-${answers.description}
-    
-## Installation
-${answers.installation}
-    
-## Usage
-${answers.usage}
-    
-## Contribution
-${answers.contributing}
-    
-## Testing
-${answers.tests}
-
-## License (${answers.license})
-${licenseInfo}`;
 
 inquirer
     .prompt([
@@ -48,7 +28,7 @@ inquirer
         {
             name: 'contributing',
             type: 'input',
-            message: 'Enter contribution guidelines:'
+            message: 'How would you like this software to be contributed?'
         },
         {
             name: 'tests',
@@ -69,13 +49,29 @@ inquirer
             name: 'name',
             type: 'input',
             message: 'Enter your name(s) for your license:'
+        },
+        {
+            name: 'github',
+            type: 'input',
+            message: 'Enter your github username:'
+        },
+        {
+            name: 'email',
+            type: 'input',
+            message: 'Enter your email address:'
+        },
+        {
+            name: 'contactInstructions',
+            type: 'input',
+            message: 'Input any additional information for how you might wish to be contacted if a user has questions:'
         }
     ])
     .then((answers) => {
-
+        // Generate license info from license.js
         license.generateLicense(answers);
-
-        const pageContent = generateREADME(answers);
+        // Generate text for README file
+        const pageContent = generate.generateREADME(answers);
+        // Create file with the generated text as the content of the page
         fs.writeFile('README.md', pageContent, (err) =>
         err ? console.log(err) : console.log("Success!")
         );
