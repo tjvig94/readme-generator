@@ -8,57 +8,103 @@ inquirer
         {
             name:'title',
             type: 'input',
-            message: 'Enter project title:'
+            message: 'Enter project title:',
+            validate: async (input) => {
+                if (input == "") {
+                    return "Please enter a title."
+                }
+            }
         },
         {
             name: 'description',
             type: 'input',
-            message: 'Enter a detailed description of this software:'
+            message: 'Enter a detailed description of this software:',
+            validate: async (input) => {
+                if (input == "") {
+                    return "Please enter a description."
+                }
+            }
         },
         {
             name: 'installation',
             type: 'input',
-            message: 'Enter installation instructions:'
+            message: 'Enter installation instructions:',
+            validate: async (input) => {
+                if (input == "") {
+                    return "Please enter instructions."
+                }
+            }
         },
         {
             name: 'usage',
             type: 'input',
-            message: 'Enter usage information:'
+            message: 'Enter usage information:',
+            validate: async (input) => {
+                if (input == "") {
+                    return "Please enter a usage information."
+                }
+            }
         },
         {
             name: 'contributing',
             type: 'input',
-            message: 'How would you like this software to be contributed?'
+            message: 'How would you like this software to be contributed?',
+            validate: async (input) => {
+                if (input == "") {
+                    return "Please enter contribution requirements."
+                }
+            }
         },
         {
             name: 'tests',
             type: 'input',
             message: 'Enter instructions for testing software:'
+
         },
         {
             name: 'license',
             type: 'list',
-            choices: ['MIT', 'BSD', 'Apache']
+            choices: ['MIT', 'BSD', 'Apache'],
+            validate: async (input) => {
+                if (input == "") {
+                    return "Please enter license information."
+                }
+            }
         },
         {
             name: 'year',
             type: 'input',
-            message: 'Enter the current year for your license:'
+            message: 'Enter the current year for your license:',
+            validate: async (input) => {
+                if (input == "") {
+                    return "Please enter a year."
+                }
+            }
         },
         {
             name: 'name',
             type: 'input',
-            message: 'Enter your name(s) for your license:'
+            message: 'Enter your name(s) for your license:',
+            validate: async (input) => {
+                if (input == "") {
+                    return "Please enter your name."
+                }
+            }
         },
         {
             name: 'github',
             type: 'input',
-            message: 'Enter your github username:'
+            message: 'Enter your github username:',            
         },
         {
             name: 'email',
             type: 'input',
-            message: 'Enter your email address:'
+            message: 'Enter your email address:',
+            validate: async (input) => {
+                if (input == "") {
+                    return "Please enter your email address."
+                }
+            }
         },
         {
             name: 'contactInstructions',
