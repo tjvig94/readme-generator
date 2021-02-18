@@ -9,10 +9,11 @@ inquirer
             name:'title',
             type: 'input',
             message: 'Enter project title:',
-            validate: async (input) => {
+            validate: async(input) => {
                 if (input == "") {
-                    return "Please enter a title."
+                    return "Please enter a title.";
                 }
+                return true;
             }
         },
         {
@@ -21,8 +22,9 @@ inquirer
             message: 'Enter a detailed description of this software:',
             validate: async (input) => {
                 if (input == "") {
-                    return "Please enter a description."
+                    return "Please enter a description.";
                 }
+                return true;
             }
         },
         {
@@ -31,8 +33,9 @@ inquirer
             message: 'Enter installation instructions:',
             validate: async (input) => {
                 if (input == "") {
-                    return "Please enter instructions."
+                    return "Please enter instructions.";
                 }
+                return true;
             }
         },
         {
@@ -41,8 +44,9 @@ inquirer
             message: 'Enter usage information:',
             validate: async (input) => {
                 if (input == "") {
-                    return "Please enter a usage information."
+                    return "Please enter a usage information.";
                 }
+                return true;
             }
         },
         {
@@ -51,15 +55,21 @@ inquirer
             message: 'How would you like this software to be contributed?',
             validate: async (input) => {
                 if (input == "") {
-                    return "Please enter contribution requirements."
+                    return "Please enter contribution requirements.";
                 }
+                return true;
             }
         },
         {
             name: 'tests',
             type: 'input',
-            message: 'Enter instructions for testing software:'
-
+            message: 'Enter instructions for testing software:',
+            validate: async (input) => {
+                if (input == "") {
+                    return "Please enter instructions for testing";
+                }
+                return true;
+            }
         },
         {
             name: 'license',
@@ -67,8 +77,9 @@ inquirer
             choices: ['MIT', 'BSD', 'Apache'],
             validate: async (input) => {
                 if (input == "") {
-                    return "Please enter license information."
+                    return "Please enter license information.";
                 }
+                return true;
             }
         },
         {
@@ -77,8 +88,9 @@ inquirer
             message: 'Enter the current year for your license:',
             validate: async (input) => {
                 if (input == "") {
-                    return "Please enter a year."
+                    return "Please enter a year.";
                 }
+                return true;
             }
         },
         {
@@ -87,14 +99,21 @@ inquirer
             message: 'Enter your name(s) for your license:',
             validate: async (input) => {
                 if (input == "") {
-                    return "Please enter your name."
+                    return "Please enter your name.";
                 }
+                return true;
             }
         },
         {
             name: 'github',
             type: 'input',
-            message: 'Enter your github username:',            
+            message: 'Enter your github username:',
+            validate: async (input) => {
+                if (input == "") {
+                    return "Please enter your github username.";
+                }
+                return true;
+            }            
         },
         {
             name: 'email',
@@ -104,6 +123,7 @@ inquirer
                 if (input == "") {
                     return "Please enter your email address."
                 }
+                return true;
             }
         },
         {
