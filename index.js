@@ -3,6 +3,8 @@ const license = require('./sources/license');
 const generate = require('./sources/generate');
 const fs = require ('fs');
 
+// Using inquirer, the user will answer a series of prompts.
+// Inquirer will check to see if the user has input information.
 inquirer
     .prompt([
         {

@@ -1,3 +1,4 @@
+// Generate text from user input and place it into the provided README layout.
 exports.generateREADME = (answers) =>
 `# ${answers.title} ${badge}
 

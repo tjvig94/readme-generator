@@ -1,3 +1,4 @@
+// Provide all license information and badges.
 exports.generateLicense = function (answers) {
     switch (answers.license) {
     case 'MIT':
