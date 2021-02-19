@@ -132,7 +132,33 @@ inquirer
             name: 'contactInstructions',
             type: 'input',
             message: 'Input any additional information for how you might wish to be contacted if a user has questions:'
+        },
+        {
+            name: 'wantImage',
+            type: 'list',
+            message: 'Would you like to provide an image?',
+            choices: ['Yes', 'No']
+        },
+        {
+            name: 'images',
+            type: 'input',
+            when: (answers) => answers.wantImage || answers.anotherImage === 'Yes', 
+            message: 'Please provide the relative filepath for an image of your application.',
+            validate: async (input) => {
+                if (input == "") {
+                    return "You must provide a relative filepath."
+                }
+                return true;
+            }             
+        },
+        {
+            name: 'anotherImage',
+            type: 'list',
+            when: (answers) => answers.images != "",
+            message: 'Do you want another image?',
+            choices: ['Yes', 'No']
         }
+
     ])
     .then((answers) => {
         // Generate license info from license.js
